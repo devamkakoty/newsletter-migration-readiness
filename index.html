@@ -31,6 +31,8 @@
     .metric { padding:1rem; background:var(--wash); border-radius:10px; }
     .metric strong { display:block; font-size:1.35rem; }
     .disclosure { font-size:.9rem; }
+    .offer { margin-top:1rem; }
+    .offer a { display:inline-block; border-radius:9px; padding:.7rem 1rem; background:var(--accent); color:white; font-weight:700; text-decoration:none; }
     @media (max-width:620px) { .question,.metrics { grid-template-columns:1fr; } }
   </style>
 </head>
@@ -65,6 +67,18 @@
       <button id="download" type="button" disabled>Download Markdown report</button>
     </div>
     <p class="disclosure">Planning aid only—not legal, deliverability, security or platform-compatibility advice. No provider is recommended by this unmonetized version. If a referral relationship is added later, it must be clearly disclosed beside the relevant recommendation.</p>
+  </section>
+
+  <section class="panel offer">
+    <h2>Need a reviewed migration plan?</h2>
+    <p>I offer a fixed-scope <strong>US$350 migration-readiness milestone</strong>:
+      a written risk register, prioritized cutover checklist, rollback plan and
+      one revision based on non-confidential facts about your current setup.
+      Implementation or credentialed access is quoted separately after scope
+      and acceptance terms are agreed.</p>
+    <p><a href="https://github.com/devamkakoty/newsletter-migration-readiness/issues/new?template=newsletter-migration-project.yml">Start a project inquiry</a></p>
+    <p class="disclosure">GitHub issues are public. Do not include subscriber
+      data, credentials, exports or other confidential information.</p>
   </section>
 </main>
 <script type="module" src="./app.mjs"></script>

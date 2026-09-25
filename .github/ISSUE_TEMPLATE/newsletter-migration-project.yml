@@ -1,0 +1,73 @@
+name: Newsletter migration project inquiry
+description: Request a fixed-scope migration-readiness planning milestone.
+title: "Newsletter migration project inquiry: "
+labels:
+  - project-inquiry
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue is public. Do not include subscriber data, credentials,
+        exports, customer information, or other confidential material.
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: Describe the result you want in non-confidential terms.
+      placeholder: A reviewed cutover and rollback plan for moving our newsletter.
+    validations:
+      required: true
+
+  - type: input
+    id: platforms
+    attributes:
+      label: Current and destination platforms
+      description: Platform names only; do not provide account details.
+      placeholder: Current platform → destination platform
+    validations:
+      required: true
+
+  - type: dropdown
+    id: audience-size
+    attributes:
+      label: Subscriber-count range
+      description: Choose a range rather than posting subscriber records.
+      options:
+        - Under 1,000
+        - 1,000–9,999
+        - 10,000–49,999
+        - 50,000–249,999
+        - 250,000 or more
+    validations:
+      required: true
+
+  - type: textarea
+    id: integrations
+    attributes:
+      label: Important integrations
+      description: List systems that must continue working, without secrets or private configuration.
+      placeholder: Website forms, CRM, payment system, analytics, automations
+    validations:
+      required: true
+
+  - type: input
+    id: deadline
+    attributes:
+      label: Target date
+      description: State the desired migration or decision date.
+      placeholder: YYYY-MM-DD
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Initial milestone
+      options:
+        - label: I am interested in the US$350 planning milestone described on the audit page.
+          required: true
+        - label: I understand that implementation, credentialed access and provider fees are outside this initial milestone unless separately agreed.
+          required: true
+        - label: I have not included confidential information in this public issue.
+          required: true

@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test audit.test.mjs",
+    "test": "node --test *.test.mjs",
     "serve": "node server.mjs"
   },
   "engines": {
