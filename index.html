@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A private, browser-only newsletter migration readiness checklist.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'unsafe-inline'; connect-src 'none'; img-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Newsletter Migration Readiness Audit</title>
+  <style>
+    :root { color-scheme: light; --ink:#17212b; --muted:#576575; --line:#d8e0e8; --accent:#2459d3; --paper:#fff; --wash:#f3f6fb; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--wash); color:var(--ink); font:16px/1.5 system-ui,sans-serif; }
+    main { width:min(880px,calc(100% - 2rem)); margin:2rem auto; }
+    header,.panel { background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:clamp(1rem,3vw,2rem); box-shadow:0 8px 28px #22324a10; }
+    header { margin-bottom:1rem; }
+    h1 { margin:.1rem 0 .5rem; line-height:1.15; }
+    h2 { margin:1.6rem 0 .5rem; font-size:1.05rem; }
+    p { color:var(--muted); }
+    .privacy { padding:.75rem 1rem; border-left:4px solid var(--accent); background:#eef4ff; color:var(--ink); }
+    .question { display:grid; grid-template-columns:1fr minmax(165px,220px); align-items:center; gap:1rem; padding:.75rem 0; border-top:1px solid var(--line); }
+    select,button { font:inherit; }
+    select { width:100%; padding:.55rem; border:1px solid #aab7c4; border-radius:8px; background:white; }
+    .buttons { display:flex; flex-wrap:wrap; gap:.7rem; margin-top:1.5rem; }
+    button { border:0; border-radius:9px; padding:.7rem 1rem; cursor:pointer; }
+    button[type=submit] { background:var(--accent); color:white; font-weight:700; }
+    button.secondary { background:#e6ebf2; color:var(--ink); }
+    button:disabled { opacity:.5; cursor:not-allowed; }
+    .metrics { display:grid; grid-template-columns:repeat(3,1fr); gap:.75rem; margin:1rem 0; }
+    .metric { padding:1rem; background:var(--wash); border-radius:10px; }
+    .metric strong { display:block; font-size:1.35rem; }
+    .disclosure { font-size:.9rem; }
+    @media (max-width:620px) { .question,.metrics { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Newsletter Migration Readiness Audit</h1>
+    <p>Find missing exports, consent records, integrations and cutover controls before choosing a migration date.</p>
+    <p class="privacy"><strong>Private by design:</strong> the app does not transmit or persist questionnaire answers. Your choices stay in this browser tab unless you download the report.</p>
+  </header>
+
+  <section class="panel">
+    <form id="audit-form"></form>
+    <div class="buttons">
+      <button form="audit-form" type="submit">Generate readiness report</button>
+      <button id="reset" class="secondary" type="button">Reset</button>
+    </div>
+  </section>
+
+  <section id="result" class="panel" hidden aria-live="polite">
+    <h2>Your result</h2>
+    <div class="metrics">
+      <div class="metric"><span>Status</span><strong id="status"></strong></div>
+      <div class="metric"><span>Readiness</span><strong id="score"></strong></div>
+      <div class="metric"><span>Answered</span><strong id="completion"></strong></div>
+    </div>
+    <h2>Hard blockers</h2>
+    <div id="blockers"></div>
+    <h2>Prioritized actions</h2>
+    <div id="actions"></div>
+    <div class="buttons">
+      <button id="download" type="button" disabled>Download Markdown report</button>
+    </div>
+    <p class="disclosure">Planning aid only—not legal, deliverability, security or platform-compatibility advice. No provider is recommended by this unmonetized version. If a referral relationship is added later, it must be clearly disclosed beside the relevant recommendation.</p>
+  </section>
+</main>
+<script type="module" src="./app.mjs"></script>
+</body>
+</html>

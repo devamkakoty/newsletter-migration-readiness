@@ -1,0 +1,12 @@
+{
+  "name": "newsletter-migration-audit",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test audit.test.mjs",
+    "serve": "node server.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
